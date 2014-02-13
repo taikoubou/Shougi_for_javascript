@@ -1,6 +1,6 @@
 function main(){
 	init();
-	for(var i=1;i<=9;i++)hoge(i);
+	for(var i=1;i<=9;i++)Piece_Data("hu",0,i,0);
 }
 
 function init(){
@@ -21,20 +21,25 @@ function init(){
 		}
 	}
 }
-function hoge(i){
+function hoge(picName,n){
 	var hu;
 	hu=document.createElement("img");
 	document.body.appendChild(hu);
-	hu.src = "res/hu.jpg";
-	hu.style.position="absolute";	
-
+	hu.src = "res/"+picName+".jpg";
+	hu.style.position="absolute";
+	hu = DisplayPos_init(n,hu);
+	return hu;
+}
+function DisplayPos_init(i,pic){
 	var x = 32*i+i-1;
-	hu.style.left = x+"px";
-	hu.style.top="230px";
+	pic.style.left = x+"px";
+	pic.style.top = "230px";
+	return pic;
 }
 function Piece_Data(name,which,x,y){
 	this.name = name;
 	this.which = which; //敵か味方
 	this.x = x;
-	this.y = y;
+	this.y = y;	
+	this.pic = hoge(name,this.x);
 }
