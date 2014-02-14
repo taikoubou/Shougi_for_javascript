@@ -27,13 +27,14 @@ function hoge(picName,n){
 	document.body.appendChild(hu);
 	hu.src = "res/"+picName+".jpg";
 	hu.style.position="absolute";
-	hu = DisplayPos_init(n,hu);
+	hu = DisplayPos(n,7,hu);
 	return hu;
 }
-function DisplayPos_init(i,pic){
-	var x = 32*i+i-1;
-	pic.style.left = x+"px";
-	pic.style.top = "230px";
+function DisplayPos(x,y,pic){
+	var dx = Convert_PosX(x);
+	var dy = Convert_PosY(y);
+	pic.style.left = dx+"px";
+	pic.style.top = dy+"px";
 	return pic;
 }
 function Piece_Data(name,which,x,y){
@@ -42,4 +43,10 @@ function Piece_Data(name,which,x,y){
 	this.x = x;
 	this.y = y;	
 	this.pic = hoge(name,this.x);
+}
+function Convert_PosX(x){
+	return 32*x+x-1;
+}
+function Convert_PosY(y){
+	return 32*y+y-1;
 }
