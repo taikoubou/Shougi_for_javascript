@@ -1,6 +1,6 @@
 function main(){
 	init();
-	for(var i=1;i<=9;i++)Piece_Data("hu",0,i,0);
+	for(var i=1;i<=9;i++) Piece_Data("hu",0,i,0);
 }
 
 function init(){
@@ -21,15 +21,6 @@ function init(){
 		}
 	}
 }
-function hoge(picName,n){
-	var hu;
-	hu=document.createElement("img");
-	document.body.appendChild(hu);
-	hu.src = "res/"+picName+".jpg";
-	hu.style.position="absolute";
-	hu = DisplayPos(n,7,hu);
-	return hu;
-}
 function DisplayPos(x,y,pic){
 	var dx = Convert_PosX(x);
 	var dy = Convert_PosY(y);
@@ -37,12 +28,20 @@ function DisplayPos(x,y,pic){
 	pic.style.top = dy+"px";
 	return pic;
 }
-function Piece_Data(name,which,x,y){
+function Piece_Data(name,which,x,y){ //クラス
 	this.name = name;
 	this.which = which; //敵か味方
 	this.x = x;
 	this.y = y;	
-	this.pic = hoge(name,this.x);
+	this.pic = PreparationImg(name,this.x){
+		var hu;
+		hu=document.createElement("img");
+		document.body.appendChild(hu);
+		hu.src = "res/"+picName+".jpg";
+		hu.style.position="absolute";
+		hu = DisplayPos(n,7,hu);
+		return hu;
+	}
 }
 function Convert_PosX(x){
 	return 32*x+x-1;
