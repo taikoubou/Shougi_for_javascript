@@ -1,3 +1,5 @@
+//クラスがわからなくてつらい
+
 function main(){
 	init();
 	for(var i=1;i<=9;i++) Piece_Data("hu",0,i,0);
